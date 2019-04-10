@@ -1,0 +1,116 @@
+-- vim: ts=4 sw=4 noet ai cindent syntax=lua
+--[[
+Conky, a system monitor, based on torsmo
+
+Any original torsmo code is licensed under the BSD license
+
+All code written since the fork of torsmo is licensed under the GPL
+
+Please see COPYING for details
+
+Copyright (c) 2004, Hannu Saransaari and Lauri Hakkarainen
+Copyright (c) 2005-2012 Brenden Matthews, Philip Kovacs, et. al. (see AUTHORS)
+All rights reserved.
+
+This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+You should have received a copy of the GNU General Public License
+along with this program.  If not, see <http://www.gnu.org/licenses/>.
+]]
+
+conky.config = {
+    alignment = 'top_left',
+    background = true,
+    border_width = 1,
+    cpu_avg_samples = 2,
+	default_color = '81a1c1',
+    default_outline_color = '81a1c1',
+    default_shade_color = '81a1c1',
+    draw_borders = false,
+    draw_graph_borders = true,
+    draw_outline = false,
+    draw_shades = false,
+    use_xft = true,
+    font = 'IBM Plex Mono Text:size=11',
+    gap_x = 5,
+    gap_y = 40,
+    minimum_height = 5,
+	minimum_width = 350,
+	maximum_width = 350,
+    net_avg_samples = 2,
+    no_buffers = true,
+    out_to_console = false,
+    out_to_stderr = false,
+	own_window = true,
+	own_window_transparent = true,
+	own_window_argb_visual = true,
+	own_window_type = 'normal',
+	own_window_hints = 'undecorated, below, sticky, skip_taskbar, skip_pager',
+    extra_newline = false,
+    stippled_borders = 0,
+    update_interval = 1.0,
+    uppercase = false,
+    use_spacer = 'none',
+    show_graph_scale = false,
+    show_graph_range = false,
+	double_buffer = true
+}
+
+conky.text = [[
+$alignc $nodename | $distribution $sysname $kernel
+$hr
+
+${color #81a1c1}Processors:
+$hr
+${color #81a1c1}Frequency (in GHz):$color $freq_g
+${color #81a1c1}CPU 1 Usage:$color ${cpu cpu1}% ${cpubar cpu1 4}
+${color #81a1c1}CPU 2 Usage:$color ${cpu cpu2}% ${cpubar cpu2 4}
+${color #81a1c1}CPU 3 Usage:$color ${cpu cpu3}% ${cpubar cpu3 4}
+${color #81a1c1}CPU 4 Usage:$color ${cpu cpu4}% ${cpubar cpu4 4}
+${color #81a1c1}Temperature: $color ${exec sensors | grep 'Core 0' | cut -c16-24}
+
+${color #81a1c1}Memory:
+$hr
+${color #81a1c1}RAM Usage:$color $mem/$memmax - $memperc% 
+${membar 4}
+${color #81a1c1}Swap Usage:$color $swap/$swapmax - $swapperc% 
+${swapbar 4}
+
+${color #81a1c1}File systems:
+$hr
+root $color${fs_used /}/${fs_size /} 
+${fs_bar 6 /}
+/opt $color${fs_used /opt}/${fs_size /opt} 
+${fs_bar 6 /opt}
+/home $color${fs_used /home}/${fs_size /home} 
+${fs_bar 6 /home}
+
+${color #81a1c1}Network Interfaces:
+$hr
+usb0 $alignr ${addr usb0} 
+Up ${upspeedgraph usb0 15,105 81a1c1 81a1c1} $alignr Down ${downspeedgraph usb0 15,105 81a1c1 81a1c1}
+
+wlan0 $alignr $color ${wireless_essid wlan0}
+Up ${upspeedgraph wlan0 15,105 81a1c1 81a1c1} $alignr Down ${downspeedgraph wlan0 15,105 81a1c1 81a1c1}
+
+${color #81a1c1}CPU Usage
+$hr 
+${color #81a1c1} ${top name 1} ${top pid 1} $alignr ${top cpu 1}%
+${color #81a1c1} ${top name 2} ${top pid 2} $alignr ${top cpu 2}%
+${color #81a1c1} ${top name 3} ${top pid 3} $alignr ${top cpu 3}%
+
+${color #81a1c1}RAM Usage
+$hr 
+${color #81a1c1} ${top_mem name 1} ${top_mem pid 1} $alignr ${top_mem mem 1}%
+${color #81a1c1} ${top_mem name 2} ${top_mem pid 2} $alignr ${top_mem mem 2}%
+${color #81a1c1} ${top_mem name 3} ${top_mem pid 3} $alignr ${top_mem mem 3}%
+
+${color #81a1c1}Uptime: $alignr $color $uptime
+]]

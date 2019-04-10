@@ -1,0 +1,4 @@
+#!/bin/bash
+
+conky -c ~/.conky/conky_system -p 15 &
+conky -c ~/.conky/conky_clock -p 15
