@@ -402,3 +402,14 @@ autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 
 " Map leader+nt to toggle NERDTree
 map <leader>nt :NERDTreeToggle<CR>
+
+" enable the matchit package
+packadd! matchit
+
+" Set autotoggle the line numbering from absolute to relative
+:set number relativenumber
+:augroup numbertoggle
+:  autocmd!
+:  autocmd BufEnter,FocusGained,InsertLeave * set relativenumber
+:  autocmd BufLeave,FocusLost,InsertEnter   * set norelativenumber
+:augroup END

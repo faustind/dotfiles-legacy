@@ -58,6 +58,10 @@ Plugin 'jpalardy/vim-slime'
     let g:slime_python_ipython = 1
 
 Plugin 'posva/vim-vue'
+
+Plugin 'tpope/vim-surround'
+
+Plugin 'mattn/emmet-vim'
 """""""""""""""""""""""""""""""""""""""""""""""""
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
