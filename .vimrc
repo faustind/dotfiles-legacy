@@ -1,5 +1,6 @@
 " source vundle configuration file
-source ~/.vim/vundle.vim
+source ~/.vim/plugins.vim
+source ~/.vim/coc.config.vim
 
 let python_highlight_all = 1
 
@@ -143,12 +144,9 @@ if $COLORTERM == 'gnome-terminal'
     set t_Co=256
 endif
 
-try
-    colorscheme desert
-catch
-endtry
-
 set background=dark
+
+let g:lightline.colorscheme = 'powerline'
 
 " Set extra options when running in GUI mode
 if has("gui_running")
@@ -391,7 +389,6 @@ endfunction
 " => Personal additions 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-
 " Expand to current buffer's directory upon entering `%%` as a command
 " From Practical vim - Drew Neil
 cnoremap <expr> %% getcmdtype() == ':' ? expand('%:h').'/' : '%%'
@@ -413,3 +410,12 @@ packadd! matchit
 :  autocmd BufEnter,FocusGained,InsertLeave * set relativenumber
 :  autocmd BufLeave,FocusLost,InsertEnter   * set norelativenumber
 :augroup END
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => FileType specific commands
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+au FileType .html,.vue,.js set shiftwidth=2
+au FileType .html,.vue,.js set tabstop=2
+au FileType vue syntax sync fromstart
+
