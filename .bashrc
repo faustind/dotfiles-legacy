@@ -136,7 +136,7 @@ export PATH=${PATH}:/opt/Python-3.7.2/bin
 export PATH=~/.local/bin:${PATH}
 
 # loaduser .Xmodmap and redirect outputs to /opt/local/var/log/xmodmap.log
-if [ -z  "$XMODMAPLOADED" ]; then
-    /opt/local/bin/loadxmodmap >> /opt/local/var/log/xmodmap.log 2>&1
-    export XMODMAPLOADED=yes
-fi
+# if [ -z  "$XMODMAPLOADED" ]; then
+#    /opt/local/bin/loadxmodmap >> /opt/local/var/log/xmodmap.log 2>&1
+#    export XMODMAPLOADED=yes
+# fi
