@@ -30,9 +30,9 @@ conky.config = {
     background = true,
     border_width = 1,
     cpu_avg_samples = 2,
-	default_color = '81a1c1',
-    default_outline_color = '81a1c1',
-    default_shade_color = '81a1c1',
+	default_color = 'bf6364',
+    default_outline_color = 'bf6364',
+    default_shade_color = 'bf6364',
     draw_borders = false,
     draw_graph_borders = true,
     draw_outline = false,
@@ -64,26 +64,26 @@ conky.config = {
 }
 
 conky.text = [[
-$alignc $nodename | $distribution $sysname $kernel
+$alignc $nodename | Deb. $sysname $kernel
 $hr
 
-${color #81a1c1}Processors:
+${color #bf6364}Processors:
 $hr
-${color #81a1c1}Frequency (in GHz):$color $freq_g
-${color #81a1c1}CPU 1 Usage:$color ${cpu cpu1}% ${cpubar cpu1 4}
-${color #81a1c1}CPU 2 Usage:$color ${cpu cpu2}% ${cpubar cpu2 4}
-${color #81a1c1}CPU 3 Usage:$color ${cpu cpu3}% ${cpubar cpu3 4}
-${color #81a1c1}CPU 4 Usage:$color ${cpu cpu4}% ${cpubar cpu4 4}
-${color #81a1c1}Temperature: $color ${exec sensors | grep 'Core 0' | cut -c16-24}
+${color #bf6364}Frequency (in GHz):$color $freq_g
+${color #bf6364}CPU 1 Usage:$color ${cpu cpu1}% ${cpubar cpu1 4}
+${color #bf6364}CPU 2 Usage:$color ${cpu cpu2}% ${cpubar cpu2 4}
+${color #bf6364}CPU 3 Usage:$color ${cpu cpu3}% ${cpubar cpu3 4}
+${color #bf6364}CPU 4 Usage:$color ${cpu cpu4}% ${cpubar cpu4 4}
+${color #bf6364}Temperature: $color ${exec sensors | grep 'Core 0' | cut -c16-24}
 
-${color #81a1c1}Memory:
+${color #bf6364}Memory:
 $hr
-${color #81a1c1}RAM Usage:$color $mem/$memmax - $memperc% 
+${color #bf6364}RAM Usage:$color $mem/$memmax - $memperc% 
 ${membar 4}
-${color #81a1c1}Swap Usage:$color $swap/$swapmax - $swapperc% 
+${color #bf6364}Swap Usage:$color $swap/$swapmax - $swapperc% 
 ${swapbar 4}
 
-${color #81a1c1}File systems:
+${color #bf6364}File systems:
 $hr
 root $color${fs_used /}/${fs_size /} 
 ${fs_bar 6 /}
@@ -92,25 +92,25 @@ ${fs_bar 6 /opt}
 /home $color${fs_used /home}/${fs_size /home} 
 ${fs_bar 6 /home}
 
-${color #81a1c1}Network Interfaces:
+${color #bf6364}Network Interfaces:
 $hr
 usb0 $alignr ${addr usb0} 
-Up ${upspeedgraph usb0 15,105 81a1c1 81a1c1} $alignr Down ${downspeedgraph usb0 15,105 81a1c1 81a1c1}
+Up ${upspeedgraph usb0 15,105 bf6364 bf6364} $alignr Down ${downspeedgraph usb0 15,105 bf6364 bf6364}
 
 wlan0 $alignr $color ${wireless_essid wlan0}
-Up ${upspeedgraph wlan0 15,105 81a1c1 81a1c1} $alignr Down ${downspeedgraph wlan0 15,105 81a1c1 81a1c1}
+Up ${upspeedgraph wlan0 15,105 bf6364 bf6364} $alignr Down ${downspeedgraph wlan0 15,105 bf6364 bf6364}
 
-${color #81a1c1}CPU Usage
+${color #bf6364}CPU Usage
 $hr 
-${color #81a1c1} ${top name 1} ${top pid 1} $alignr ${top cpu 1}%
-${color #81a1c1} ${top name 2} ${top pid 2} $alignr ${top cpu 2}%
-${color #81a1c1} ${top name 3} ${top pid 3} $alignr ${top cpu 3}%
+${color #bf6364} ${top name 1} ${top pid 1} $alignr ${top cpu 1}%
+${color #bf6364} ${top name 2} ${top pid 2} $alignr ${top cpu 2}%
+${color #bf6364} ${top name 3} ${top pid 3} $alignr ${top cpu 3}%
 
-${color #81a1c1}RAM Usage
+${color #bf6364}RAM Usage
 $hr 
-${color #81a1c1} ${top_mem name 1} ${top_mem pid 1} $alignr ${top_mem mem 1}%
-${color #81a1c1} ${top_mem name 2} ${top_mem pid 2} $alignr ${top_mem mem 2}%
-${color #81a1c1} ${top_mem name 3} ${top_mem pid 3} $alignr ${top_mem mem 3}%
+${color #bf6364} ${top_mem name 1} ${top_mem pid 1} $alignr ${top_mem mem 1}%
+${color #bf6364} ${top_mem name 2} ${top_mem pid 2} $alignr ${top_mem mem 2}%
+${color #bf6364} ${top_mem name 3} ${top_mem pid 3} $alignr ${top_mem mem 3}%
 
-${color #81a1c1}Uptime: $alignr $color $uptime
+${color #bf6364}Uptime: $alignr $color $uptime
 ]]

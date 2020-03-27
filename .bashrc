@@ -16,8 +16,8 @@ HISTCONTROL=ignoreboth
 shopt -s histappend
 
 # for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
-HISTSIZE=1000
-HISTFILESIZE=2000
+HISTSIZE=10000
+HISTFILESIZE=20000
 
 # check the window size after each command and, if necessary,
 # update the values of LINES and COLUMNS.
@@ -60,9 +60,12 @@ if [ -n "$force_color_prompt" ]; then
     fi
 fi
 
+# sourcing the utility for bash prompt
+. ~/.git-prompt.sh
+export GIT_PS1_SHOWDIRTYSTATE=1
 
 if [ "$color_prompt" = yes ]; then
-    PS1='${debian_chroot:+($debian_chroot)}\[\e[1;95m\]\w \$\[\e[00m\] '
+    PS1='${debian_chroot:+($debian_chroot)}\[\e[1;95m\]\w$(__git_ps1 " (%s)") \$\[\e[00m\] '
 else
     PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
 fi
@@ -112,15 +115,12 @@ if ! shopt -oq posix; then
   fi
 fi
 
-# setting this user global npm-module directory
-export NPM_CONFIG_PREFIX=/opt/npm-global
-export PATH=/opt/npm-global/bin:$PATH
-
 # add /opt/local/bin to PATH
 export PATH=${PATH}:/opt/local/bin
 
+
 # loaduser .Xmodmap and redirect outputs to /opt/local/var/log/xmodmap.log
-if [ -z  "$XMODMAPLOADED" ]; then
-    /opt/local/bin/loadxmodmap >> /opt/local/var/log/xmodmap.log 2>&1
-    export XMODMAPLOADED=yes
-fi
+# if [ -z  "$XMODMAPLOADED" ]; then
+#    /opt/local/bin/loadxmodmap >> /opt/local/var/log/xmodmap.log 2>&1
+#    export XMODMAPLOADED=yes
+# fi

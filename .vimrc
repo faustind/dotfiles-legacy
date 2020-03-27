@@ -1,5 +1,6 @@
 " source vundle configuration file
-source ~/.vim/vundle.vim
+source ~/.vim/plugins.vim
+source ~/.vim/coc.config.vim
 
 let python_highlight_all = 1
 
@@ -136,6 +137,7 @@ set foldcolumn=1
 " => Colors and Fonts
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Enable syntax highlighting
+syntax on
 syntax enable 
 
 " Enable 256 colors palette in Gnome Terminal
@@ -143,12 +145,9 @@ if $COLORTERM == 'gnome-terminal'
     set t_Co=256
 endif
 
-try
-    colorscheme desert
-catch
-endtry
-
 set background=dark
+
+let g:lightline.colorscheme = 'powerline'
 
 " Set extra options when running in GUI mode
 if has("gui_running")
@@ -391,7 +390,6 @@ endfunction
 " => Personal additions 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-
 " Expand to current buffer's directory upon entering `%%` as a command
 " From Practical vim - Drew Neil
 cnoremap <expr> %% getcmdtype() == ':' ? expand('%:h').'/' : '%%'
@@ -402,3 +400,31 @@ autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 
 " Map leader+nt to toggle NERDTree
 map <leader>nt :NERDTreeToggle<CR>
+
+" enable the matchit package
+packadd! matchit
+
+" Set autotoggle the line numbering from absolute to relative
+:set number relativenumber
+:augroup numbertoggle
+:  autocmd!
+:  autocmd BufEnter,FocusGained,InsertLeave * set relativenumber
+:  autocmd BufLeave,FocusLost,InsertEnter   * set norelativenumber
+:augroup END
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => FileType specific commands
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+au FileType .html,.vue,.js set shiftwidth=2
+au FileType .html,.vue,.js set tabstop=2
+au FileType vue syntax sync fromstart
+
+
+let g:haskell_enable_quantification = 1   " to enable highlighting of `forall`
+let g:haskell_enable_recursivedo = 1      " to enable highlighting of `mdo` and `rec`
+let g:haskell_enable_arrowsyntax = 1      " to enable highlighting of `proc`
+let g:haskell_enable_pattern_synonyms = 1 " to enable highlighting of `pattern`
+let g:haskell_enable_typeroles = 1        " to enable highlighting of type roles
+let g:haskell_enable_static_pointers = 1  " to enable highlighting of `static`
+let g:haskell_backpack = 1                " to enable highlighting of backpack keywords
