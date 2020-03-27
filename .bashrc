@@ -115,29 +115,5 @@ if ! shopt -oq posix; then
   fi
 fi
 
-# setting this user global npm-module directory
-#export NPM_CONFIG_PREFIX=/opt/npm-global
-#export PATH=/opt/npm-global/bin:$PATH
-
-
-# Galaxy S6 edge apb serial
-export GALAXY=0217129422060502
-
 # add /opt/local/bin to PATH
 export PATH=${PATH}:/opt/local/bin
-
-# add custom Python installations to path
-export PATH=${PATH}:/opt/Python-3.6.5/bin
-export PATH=${PATH}:/opt/Python-3.7.2/bin
-
-export PATH=~/.local/bin:${PATH}
-
-# loaduser .Xmodmap and redirect outputs to /opt/local/var/log/xmodmap.log
-# if [ -z  "$XMODMAPLOADED" ]; then
-#    /opt/local/bin/loadxmodmap >> /opt/local/var/log/xmodmap.log 2>&1
-#    export XMODMAPLOADED=yes
-# fi
-
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
