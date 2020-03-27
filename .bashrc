@@ -117,10 +117,3 @@ fi
 
 # add /opt/local/bin to PATH
 export PATH=${PATH}:/opt/local/bin
-
-
-# loaduser .Xmodmap and redirect outputs to /opt/local/var/log/xmodmap.log
-# if [ -z  "$XMODMAPLOADED" ]; then
-#    /opt/local/bin/loadxmodmap >> /opt/local/var/log/xmodmap.log 2>&1
-#    export XMODMAPLOADED=yes
-# fi
