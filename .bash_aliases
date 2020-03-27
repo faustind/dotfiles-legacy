@@ -17,8 +17,10 @@ alias r='R'
 alias ipython='python3.7 -m IPython --TerminalInteractiveShell.editing_mode=vi'
 
 alias conda='/opt/anaconda3/bin/conda'
-alias config='/usr/bin/git --git-dir=/home/faustin/.dotfiles/ --work-tree=/home/faustin'
+alias config='/usr/bin/git --git-dir=/home/faustind/.cfg/ --work-tree=/home/faustind'
 
 alias maude='/opt/Maude-2.7.1-linux/maude.linux64'
 
-alias stack_new='stack new --resolver=nightly-2019-09-21'
+alias stack_new='stack new --resolver=lts-14.27'
+
+alias vim='nvim'

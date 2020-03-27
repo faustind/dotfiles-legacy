@@ -4,6 +4,12 @@ source ~/.vim/coc.config.vim
 
 let python_highlight_all = 1
 
+" always show signcolumn
+set signcolumn=yes
+
+" don't give ins-completion-menu messages.
+set shortmess+=c
+
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Maintainer: 
 "       Amir Salihefendic — @amix3k
@@ -147,6 +153,8 @@ endif
 
 set background=dark
 
+colorscheme gruvbox 
+
 let g:lightline.colorscheme = 'powerline'
 
 " Set extra options when running in GUI mode
@@ -208,8 +216,8 @@ vnoremap <silent> # :<C-u>call VisualSelection('', '')<CR>?<C-R>=@/<CR><CR>
 " => Moving around, tabs, windows and buffers
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Map <Space> to / (search) and Ctrl-<Space> to ? (backwards search)
-map <space> /
-map <c-space> ?
+"map <space> /
+"map <c-space> ?
 
 " Disable highlight when <leader><cr> is pressed
 map <silent> <leader><cr> :noh<cr>
@@ -416,8 +424,8 @@ packadd! matchit
 " => FileType specific commands
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-au FileType .html,.vue,.js set shiftwidth=2
-au FileType .html,.vue,.js set tabstop=2
+au FileType .html,.vue,.js,.css,.sass,.scss set shiftwidth=2
+au FileType .html,.vue,.js,.css,.sass,.scss set tabstop=2
 au FileType vue syntax sync fromstart
 
 

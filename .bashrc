@@ -116,12 +116,9 @@ if ! shopt -oq posix; then
 fi
 
 # setting this user global npm-module directory
-export NPM_CONFIG_PREFIX=/opt/npm-global
-export PATH=/opt/npm-global/bin:$PATH
+#export NPM_CONFIG_PREFIX=/opt/npm-global
+#export PATH=/opt/npm-global/bin:$PATH
 
-# adding the android sdk location to env
-export ANDROID_HOME=/opt/Android/Sdk
-export PATH=${PATH}:/opt/Android/Sdk/platform-tools:/opt/Android/Sdk/tools
 
 # Galaxy S6 edge apb serial
 export GALAXY=0217129422060502
@@ -140,3 +137,7 @@ export PATH=~/.local/bin:${PATH}
 #    /opt/local/bin/loadxmodmap >> /opt/local/var/log/xmodmap.log 2>&1
 #    export XMODMAPLOADED=yes
 # fi
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
