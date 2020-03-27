@@ -115,25 +115,9 @@ if ! shopt -oq posix; then
   fi
 fi
 
-# setting this user global npm-module directory
-export NPM_CONFIG_PREFIX=/opt/npm-global
-export PATH=/opt/npm-global/bin:$PATH
-
-# adding the android sdk location to env
-export ANDROID_HOME=/opt/Android/Sdk
-export PATH=${PATH}:/opt/Android/Sdk/platform-tools:/opt/Android/Sdk/tools
-
-# Galaxy S6 edge apb serial
-export GALAXY=0217129422060502
-
 # add /opt/local/bin to PATH
 export PATH=${PATH}:/opt/local/bin
 
-# add custom Python installations to path
-export PATH=${PATH}:/opt/Python-3.6.5/bin
-export PATH=${PATH}:/opt/Python-3.7.2/bin
-
-export PATH=~/.local/bin:${PATH}
 
 # loaduser .Xmodmap and redirect outputs to /opt/local/var/log/xmodmap.log
 # if [ -z  "$XMODMAPLOADED" ]; then
